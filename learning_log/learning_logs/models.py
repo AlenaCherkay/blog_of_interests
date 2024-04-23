@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Topic(models.Model):
-  """Тема которую изучает пользлватель"""
+  """Модель описывает таблицу хранящую : темы которые изучает пользлватель"""
   text = models.CharField(max_length=200)
   date_added = models.DateField(auto_now_add=True)
   # бавляется поле owner, используемое в отношении внешнего ключа к модели User
@@ -15,7 +15,7 @@ class Topic(models.Model):
 
 
 class Entry(models.Model):
-  """Информация изученная пользователем по теме"""
+  """Модель описывает таблицу хранящую :информацию изученную пользователем по теме"""
   topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
   text = models.TextField()
   date_added = models.DateField(auto_now_add=True)
